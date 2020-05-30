@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Ericjank\Hutils\Helpers;
 
+use Hyperf\Di\Annotation\Inject;
 use Hyperf\Constants\AbstractConstants;
 use Hyperf\Constants\Annotation\Constants;
 
