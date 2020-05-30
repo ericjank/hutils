@@ -15,7 +15,7 @@ Class Helper
         if ( ! isset($scanner['code']))
         {
             $scanner = new Scanner();
-            $metas = $scanner->scan([dirname(__FILE__)]);
+            $scanner['code'] = $scanner->scan([dirname(__FILE__)]);
         }
     }
 
