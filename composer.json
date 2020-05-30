@@ -37,8 +37,7 @@
     },
     "autoload": {
         "files": [
-            "src/Functions.php",
-            "src/Helpers/Code.php"
+            "src/Functions.php"
         ],
         "psr-4": {
             "Ericjank\\Hutils\\": "src/"
