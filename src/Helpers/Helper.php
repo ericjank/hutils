@@ -5,9 +5,19 @@ declare(strict_types = 1);
 namespace Ericjank\Hutils\Helpers;
 
 use Ericjank\Hutils\Helpers\Code;
+use Hyperf\Di\Annotation\Scanner;
 
 Class Helper
 {
+    public static $scanner = [];
+    public function __construct()
+    {
+        if ( ! isset($scanner['code']))
+        {
+            $scanner = new Scanner();
+            $metas = $scanner->scan([dirname(__FILE__)]);
+        }
+    }
 
     //返回成功
     public function success($data)
