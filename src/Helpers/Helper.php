@@ -12,10 +12,10 @@ Class Helper
     public static $scanner = [];
     public function __construct()
     {
-        if ( ! isset($scanner['code']))
+        if ( ! isset(self::$scanner['code']))
         {
-            $scanner = new Scanner();
-            $scanner['code'] = $scanner->scan([dirname(__FILE__)]);
+            self::$scanner['code'] = new Scanner();
+            self::$scanner['code']->scan([dirname(__FILE__)]);
         }
     }
 
