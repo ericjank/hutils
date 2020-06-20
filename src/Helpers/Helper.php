@@ -96,6 +96,7 @@ Class Helper
                 break;
             case 2:
                 $thirdType = 'QQ';
+                break;
             case 3:
                 $thirdType = 'Weibo';
                 break;
@@ -104,6 +105,16 @@ Class Helper
         }
 
         return $thirdType;
+    }
+
+    /**
+     * 创建默认用户名
+     *
+     * @return string
+     */
+    public function createDefaultUsername()
+    {
+        $default_user_name = '用户'.time().random_int(100000,999999);
     }
 
 }
