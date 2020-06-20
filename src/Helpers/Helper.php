@@ -114,7 +114,7 @@ Class Helper
      */
     public function createDefaultUsername()
     {
-        return $default_user_name = '用户'.time().random_int(100000,999999);
+        return 'TXC'.time().random_int(100000,999999);
     }
 
 }
