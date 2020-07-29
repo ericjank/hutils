@@ -52,7 +52,7 @@ Class Helper
      */
     public function generateNumber($length = 6)
     {
-        return rand(pow(10, ($length - 1)), pow(10, $length) - 1);
+        return random_int(pow(10, ($length - 1)), pow(10, $length) - 1);
     }
 
     /**
@@ -107,14 +107,66 @@ Class Helper
         return $thirdType;
     }
 
+    //短信验证码类型
+    public function sendCodeType(int $code_type): array
+    {
+        switch ($code_type) {
+            case 1: //手机号登陆验证码
+                $type = 'signup';
+                $template = 'ali_login';
+                $suffix = '_login';
+                break;
+            case 2: //绑定手机号验证码
+                $type = 'signup';
+                $template = 'ali_login';
+                $suffix = '_bind';
+                break;
+            case 3: //修改密码验证码
+                $type = 'signup';
+                $template = 'ali_login';
+                $suffix = '_resetpwd';
+                break;
+            case 4: //设置支付密码验证码
+                $type = 'signup';
+                $template = 'ali_login';
+                $suffix = '_resetpaypwd';
+                break;
+            case 5: //忘记密码
+                $type = 'signup';
+                $template = 'ali_login';
+                $suffix = '_forgetpwd';
+                break;
+            default://手机号登陆验证码
+                $type = 'signup';
+                $template = 'ali_login';
+                $suffix = '_login';
+                break;
+        }
+        return [
+            'type' => $type,
+            'template' => $template,
+            'suffix' => $suffix,
+        ];
+    }
+
     /**
      * 创建默认用户名
      *
      * @return string
      */
-    public function createDefaultUsername()
+    public function createDefaultUsername(): string
     {
-        return 'TXC'.time().random_int(100000,999999);
+        return (string) $this->generateNumber(9);
+    }
+
+    /**
+     * 创建默认昵称
+     *
+     * @return string
+     */
+    public function createDefaultNickname(): string
+    {
+        return 'TXC'.$this->generateNumber(7);
     }
 
 }

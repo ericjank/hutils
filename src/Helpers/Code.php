@@ -60,6 +60,11 @@ class Code extends AbstractConstants
     const UNAUTHENTICATED = 401;
 
     /**
+     * @Message("您已经在其他设备登陆, 请重新登陆")
+     */
+    const TOKEN_HAS_CHANGE = 4001;
+
+    /**
      * @Message("QueryException")
      */
     const QUERYEXCEPTION = 1002;

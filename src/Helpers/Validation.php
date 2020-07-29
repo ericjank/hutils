@@ -44,4 +44,10 @@ class Validation
         return preg_match("/^[\x{4e00}-\x{9fa5}]{1}[a-zA-Z\x{4e00}-\x{9fa5}·•]{1,7}$/u", $chineseName) ? true : false;
     }
 
+    //昵称
+    public function isNickName(string $nickName): bool
+    {
+        return preg_match("/^[a-zA-Z\x{4e00}-\x{9fa5}0-9\.\/_-]{1,10}$/u", $nickName) ? true : false;
+    }
+
 }
