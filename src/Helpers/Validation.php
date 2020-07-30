@@ -9,7 +9,7 @@ class Validation
     //手机号
     public function isPhoneNumber(string $phone): bool
     {
-        return preg_match("/^1[345678]{1}\d{9}$/",$phone) ? true : false;
+        return preg_match("/^1[3456789]{1}\d{9}$/",$phone) ? true : false;
     }
 
     //6-16位数字或字母密码
