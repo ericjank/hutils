@@ -47,7 +47,19 @@ class Validation
     //昵称
     public function isNickName(string $nickName): bool
     {
-        return preg_match("/^[a-zA-Z\x{4e00}-\x{9fa5}0-9\.\/_-]{1,10}$/u", $nickName) ? true : false;
+        $res = preg_match("/^[a-zA-Z\x{4e00}-\x{9fa5}0-9]{2,16}$/u", $nickName);
+        if(!$res){
+            return false;
+        }
+        preg_match_all("/[\x{4e00}-\x{9fa5}]+/u",$nickName,$matches);
+        if(!empty($matches[0])){
+            $chinese_len = mb_strlen(implode('',$matches[0]));
+            $english_len = mb_strlen($nickName) - $chinese_len;
+            if($english_len + $chinese_len * 2 > 16){
+                return false;
+            }
+        }
+        return true;
     }
 
 }
