@@ -136,6 +136,16 @@ Class Helper
                 $template = 'ali_login';
                 $suffix = '_forgetpwd';
                 break;
+            case 6: //改绑手机原手机号
+                $type = 'signup';
+                $template = 'ali_login';
+                $suffix = '_modifybindphone';
+                break;
+            case 7: //改绑手机新手机号
+                $type = 'signup';
+                $template = 'ali_login';
+                $suffix = '_modifybindphone';
+                break;
             default://手机号登陆验证码
                 $type = 'signup';
                 $template = 'ali_login';
